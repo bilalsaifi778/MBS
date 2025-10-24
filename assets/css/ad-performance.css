@@ -1,0 +1,123 @@
+/* Ad Performance Optimizations */
+
+/* Prevent layout shifts and improve rendering performance */
+.ad-slot,
+.header-ad-container,
+.advertisement-widget,
+.home-middle-ad,
+.pre-footer-ad {
+    contain: layout style paint;
+    content-visibility: auto;
+}
+
+/* Reserve space for common ad sizes to prevent CLS */
+.ad-slot[data-size="leaderboard"],
+.header-ad-container {
+    min-height: 90px;
+    max-height: 250px;
+}
+
+.ad-slot[data-size="rectangle"],
+.sidebar .advertisement-widget {
+    min-height: 250px;
+    max-height: 600px;
+}
+
+/* Full width styling for homepage middle ad */
+.home-middle-ad {
+    width: 100%;
+    margin: 24px 0;
+    padding: 16px 0;
+    clear: both;
+    box-sizing: border-box;
+    background: #ffffff;
+    min-height: 100px; /* Ensure ad has minimum height */
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+/* Highlight ad area with yellow background for visibility */
+.home-middle-ad.highlight {
+    background: #fff9c4;
+    border: 2px dashed #ffd54f;
+    border-radius: 8px;
+}
+
+.home-middle-ad .widget {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+.home-middle-ad .widget-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Ensure ad content is visible */
+.home-middle-ad .widget-content > * {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Smooth loading transition */
+.ad-container {
+    opacity: 0;
+    animation: fadeInAd 0.3s ease-in forwards;
+}
+
+@keyframes fadeInAd {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Prevent ads from breaking layout */
+.ad-slot > *,
+.advertisement-widget > *,
+.home-middle-ad > * {
+    max-width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box;
+}
+
+/* Loading placeholder */
+.ad-loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .ad-slot,
+    .advertisement-widget,
+    .home-middle-ad {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .home-middle-ad {
+        padding: 12px 0;
+        margin: 16px 0;
+        width: 100%;
+    }
+    
+    .home-middle-ad .widget {
+        padding: 0 16px;
+    }
+}

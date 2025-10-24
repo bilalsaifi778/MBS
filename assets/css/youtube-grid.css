@@ -1,0 +1,353 @@
+/* YouTube Video Grid Layout */
+.youtube-video-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+  margin-bottom: 30px !important;
+  width: 100% !important;
+}
+
+.video-card {
+  background: #fff !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #f0f0f0;
+  border-radius: 12px 12px 0 0;
+}
+
+.video-thumbnail img {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.video-card:hover .video-thumbnail img {
+  transform: scale(1.05);
+}
+
+.no-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+.no-thumbnail i {
+  font-size: 3rem;
+  opacity: 0.8;
+}
+
+.video-link {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.play-button-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-card:hover .play-button-overlay {
+  opacity: 1;
+}
+
+.play-button {
+  width: 60px;
+  height: 60px;
+  background: #ff0000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.video-card:hover .play-button {
+  transform: scale(1.1);
+}
+
+.video-duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.video-info {
+  padding: 16px;
+}
+
+.video-title {
+  margin: 0 0 12px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #333;
+}
+
+.video-title a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.video-title a:hover {
+  color: #ff0000;
+}
+
+.video-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.video-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.video-stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.video-stats i {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.video-engagement {
+  display: flex;
+  gap: 12px;
+}
+
+.video-engagement span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.video-engagement i {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.comments i {
+  color: #2196f3;
+}
+
+.likes i {
+  color: #f43f5e;
+}
+
+/* Pagination spacing for video grid */
+.youtube-video-grid {
+  margin-bottom: 1.5rem !important;
+}
+/* Ensure the sidebar column is visible alongside the video grid */
+.site-main .row > aside .sidebar {
+  display: block !important;
+  position: sticky;
+  top: 100px;
+}
+/* Prevent the grid from overlapping following elements (like pagination) */
+.youtube-video-grid { contain: layout paint style; overflow: visible !important; }
+/* Force pagination to show clearly after the grid */
+.youtube-video-grid + nav,
+.youtube-video-grid + .row nav,
+.tutorial-grid + nav {
+  clear: both;
+  margin-top: 1.25rem !important;
+}
+/* Make sure pagination is not hidden or collapsed */
+.youtube-video-grid + nav .pagination,
+.tutorial-grid + nav .pagination {
+  display: flex !important;
+  visibility: visible !important;
+}
+
+/* SIMPLE PAGINATION STYLING - NO GRADIENTS */
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  gap: 0.25rem;
+}
+
+.pagination .page-item {
+  display: block;
+}
+
+.pagination .page-link {
+  display: block;
+  padding: 8px 12px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: normal;
+  min-width: 36px;
+  text-align: center;
+}
+
+.pagination .page-link:hover {
+  color: #0066cc;
+  background-color: #f5f5f5;
+  border-color: #0066cc;
+}
+
+.pagination .page-item.active .page-link {
+  color: #fff;
+  background-color: #0066cc;
+  border-color: #0066cc;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #999;
+  background-color: #fff;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
+/* Clean container styling */
+.container > .row.mt-4 {
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Footer spacing */
+.site-footer {
+  margin-top: 3rem !important;
+  clear: both;
+}
+
+/* Remove debug styling */
+.container .row.mt-4 .col-12 {
+  background-color: transparent !important;
+  padding: 0 !important;
+  min-height: auto !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .youtube-video-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 18px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .youtube-video-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .youtube-video-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  
+  .video-card {
+    border-radius: 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .youtube-video-grid {
+    gap: 12px !important;
+  }
+  
+  .video-card {
+    border-radius: 6px !important;
+  }
+  
+  .video-title {
+    font-size: 0.9rem;
+  }
+  
+  .video-stats span,
+  .video-engagement span {
+    font-size: 0.75rem;
+  }
+}
+
+/* Override CSS variables that cause gradients in pagination */
+.pagination {
+  /* Reset CSS variables locally for pagination only */
+  --primary: #0066cc;
+  --primary-600: #0066cc;
+  --surface: #ffffff;
+  --text: #333333;
+  --border: #dddddd;
+}
+
+/* Direct element overrides */
+.pagination .page-item.active .page-link {
+  background: #0066cc !important;
+  background-color: #0066cc !important;
+  background-image: none !important;
+  color: white !important;
+  border-color: #0066cc !important;
+}
+

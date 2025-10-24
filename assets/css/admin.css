@@ -1,0 +1,28 @@
+/* Admin panel custom styles */
+body { background-color: #f6f7fb; }
+
+/* Sidebar */
+.sidebar .nav-link.active { background-color: rgba(255,255,255,.1); border-left: 3px solid #0d6efd; }
+.sidebar .nav-link { padding: .5rem 1rem; border-radius: .25rem; }
+
+/* Layout page */
+.layout-map { display: flex; flex-direction: column; gap: 1rem; }
+.layout-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.layout-box { background: #fff; border: 1px solid #e5e7eb; border-radius: .5rem; flex: 1 1 320px; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.layout-box.full { flex: 1 1 100%; }
+.layout-box.flex-2 { flex: 2 1 480px; }
+.layout-box.flex-1 { flex: 1 1 320px; }
+.layout-box-header { padding: .6rem .9rem; border-bottom: 1px solid #eef2f7; background: #f8fafc; font-weight: 600; }
+.layout-box-body { padding: .9rem; }
+.layout-list { list-style: none; margin: 0; padding: 0; }
+.layout-list li { padding: .35rem .5rem; border: 1px dashed #e5e7eb; border-radius: .375rem; background: #fcfdff; margin-bottom: .4rem; display: flex; align-items: center; }
+.layout-chip { display: inline-flex; align-items: center; gap: .4rem; padding: .35rem .55rem; border-radius: 999px; background: #f3f4f6; border: 1px solid #e5e7eb; font-size: .85rem; }
+
+/* Tiny colored cards */
+.layout-stat { border: 0; box-shadow: 0 6px 18px rgba(0,0,0,.1); }
+
+/* Add Gadget tile (Layout) */
+.gadget-add { border: 2px dashed #cbd5e1; border-radius: .5rem; padding: .6rem .8rem; background: #f8fafc; color: #2563eb; transition: background .2s, border-color .2s; }
+.gadget-add:hover { background: #eef2ff; border-color: #94a3b8; }
+.gadget-add-icon { width: 28px; height: 28px; border-radius: .4rem; display: inline-flex; align-items: center; justify-content: center; background: #2563eb; color: #fff; }
+.gadget-add-text { font-weight: 600; color: #334155; }

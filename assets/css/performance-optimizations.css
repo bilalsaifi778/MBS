@@ -1,0 +1,169 @@
+/* Performance Optimizations for Faster Loading and Better Responsiveness */
+
+/* Critical CSS for above-the-fold content */
+.critical-css {
+  /* Add critical styles here for immediate rendering */
+  /* This rule is intentionally left with a comment to prevent empty ruleset warnings */
+}
+
+/* Image Optimization */
+img {
+  loading: lazy; /* Lazy load images below the fold */
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Critical Assets Preloading */
+/* Add to header for critical resources:
+<link rel="preload" href="path/to/critical-font.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="path/to/critical-image.jpg" as="image">
+*/
+
+/* Reduce Motion for Performance */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Optimize Animations */
+.post-card, .btn, .nav-link {
+  /* Use transform and opacity for better performance */
+  will-change: transform, opacity;
+}
+
+/* Contain Layout Shifts */
+.ad-slot, .advertisement-widget, .home-middle-ad {
+  contain: layout style paint;
+}
+
+/* Optimize Scroll Performance */
+.site-main {
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* Reduce Reflows */
+.container, .container-narrow {
+  contain: layout style;
+}
+
+/* Optimize Media Queries for Better Responsiveness */
+@media (max-width: 576px) {
+  .posts-grid .row {
+    row-gap: 1rem;
+  }
+  
+  .post-card {
+    transition: none; /* Remove transitions on mobile for better performance */
+  }
+  
+  .post-body {
+    padding: 0.75rem;
+  }
+  
+  .post-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .brandbar {
+    padding: 1rem 0;
+  }
+  
+  .topbar {
+    font-size: 0.75rem;
+  }
+  
+  .social {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Prefetching for Better Perceived Performance */
+/* Add to header for important pages:
+<link rel="prefetch" href="/category.php">
+<link rel="prefetch" href="/about.php">
+<link rel="prefetch" href="/contact.php">
+*/
+
+/* Optimize JavaScript Loading */
+/* Defer non-critical JavaScript */
+/* <script src="non-critical.js" defer></script> */
+
+/* Service Worker for Caching (if implemented) */
+/* Add to footer:
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function(registration) {
+        console.log('SW registered: ', registration);
+      })
+      .catch(function(registrationError) {
+        console.log('SW registration failed: ', registrationError);
+      });
+  });
+}
+</script>
+*/
+
+/* Optimize AOS Animations */
+[data-aos] {
+  pointer-events: auto;
+}
+
+/* Reduce Animation Duration on Slow Devices */
+@media (hover: none) and (pointer: coarse) {
+  [data-aos] {
+    transition-duration: 0s !important;
+  }
+}
+
+/* Optimize Ad Performance */
+.ad-slot {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 90px;
+}
+
+.advertisement-widget {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 250px;
+}
+
+.home-middle-ad {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 150px;
+}
+
+/* Optimize Widget Performance */
+.widget {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 100px;
+}
+
+/* Reduce Layout Shifts */
+.post-thumbnail-link img {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+/* Critical Path CSS for Mobile */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    touch-action: manipulation; /* Remove 300ms delay on mobile */
+  }
+  
+  .nav-link {
+    touch-action: manipulation; /* Remove 300ms delay on mobile */
+  }
+  
+  .btn {
+    touch-action: manipulation; /* Remove 300ms delay on mobile */
+  }
+}
